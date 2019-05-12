@@ -205,10 +205,6 @@ class SimpleSeq2SeqChatModel(object):
                         A[count, :] = ans_partial #to文本是到k位置出现前的所有单词
                         Y[count, :] = y #Y是表示第k个单词出现sent[k]都得概率最大
                         count += 1
-                        print (batch_x[i:i+1])
-                        print (ans_partial)
-                        print (y)
-                        print (self.eos, self.bos)
                 print('Training epoch: %d, training examples: %d - %d' % (poch, n, n + step))
                 self.model.fit([Q,A], Y, batch_size=128, epochs=1)
                 test_input = train_x[41:42]
